@@ -29,7 +29,7 @@ Customer churn is one of the most costly problems in the telecom industry. This 
 
 ## 📊 Dataset
 
-**Source:** IBM Watson Telco Customer Churn Dataset
+**Source:** [Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
 
 | Property | Detail |
 |---|---|
