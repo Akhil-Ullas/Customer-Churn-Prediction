@@ -57,6 +57,24 @@ You can find the detailed discription of the dataset in the above link
 * totalcharges     : 0.014   -> No predictive value
 ---
 
+
+## Solution Approch
+
+**Problem:** Telecom companies lose significant revenue to customer churn. The goal was to build a predictive system that identifies at risk customers before they leave, enabling proactive retention.
+
+**Data & EDA:** Using the Churn dataset (7,043 records, 20 features), exploratory analysis revealed that contract type, internet service type, payment method, and online security were the strongest behavioral indicators of churn. Low-signal features like gender, phone service, and total charges were flagged for deprioritization i.e they can be avoided.
+
+**Preprocessing:** Categorical variables were encoded using Label Encoding. Class imbalance (73.5% No Churn / 26.5% Churn) was addressed using SMOTE on the training set only, preventing data leakage while ensuring the model learned the minority class effectively.
+
+**ML Modeling:** 11 classifiers were benchmarked via k fold cross-validation. The top 5 models are  Random Forest, LightGBM, XGBoost, CatBoost, and Gradient Boosting were hyperparameter tunning using GridSearchCV. LightGBM was selected as the final model (AUC: 0.834) for its combination of accuracy, training speed, and production readiness. The decision threshold was lowered to 0.3 to prioritize recall on the churn class, catching 78% of at risk customers.
+
+**Deep Learning:** A parallel ANN was developed using TensorFlow and Keras  a custom 4 layer network (64→32→16→1) with Dropout regularization, He Uniform initialization, Adam optimizer, and EarlyStopping. It achieved an AUC of 0.812, validating the ML approach while offering an alternative for more complex pattern recognition.
+
+**Deployment:** The final model was deployed as a Streamlit web application, allowing real-time churn predictions with three-tier risk classification (Low / Medium / High)  making it immediately usable by non-technical business teams. Model outputs were also exported to Power BI for executive-level churn monitoring dashboards.
+
+---
+
+
 ##  Workflow
 
 ```
