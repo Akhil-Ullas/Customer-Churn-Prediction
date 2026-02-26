@@ -238,6 +238,8 @@ streamlit run deployment.py
 
 ## Requirements
 
+Do check requirements.txt to get a detailed requirements
+
 ```txt
 pandas
 numpy
