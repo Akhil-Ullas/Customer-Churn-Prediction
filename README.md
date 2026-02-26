@@ -6,7 +6,7 @@ A machine learning and deep learning project to predict customer churn for a tel
 
 ## Overview
 
-Customer churn is one of the most costly problems in the telecom industry. This project builds both a classical machine learning pipeline and a deep learning model (ANN) to identify customers at risk of canceling their subscription. The final model is deployed as an interactive **Streamlit web app** that allows real-time churn predictions with risk level classification.
+Customer churn is one of the most costly problems in the telecom industry. This project builds both a classical machine learning pipeline and a deep learning model (ANN) to identify customers at risk of canceling their subscription. The final model is deployed as an interactive **Streamlit web** that allows real-time churn predictions with risk level classification.
 
 ---
 
@@ -26,12 +26,12 @@ You can find the detailed discription of the dataset in the above link
 
 ## Key Findings
 
-> Insights discovered during exploratory data analysis
+> Insights discovered during EDA
 
--  **Contract Type** : Month-to-month customers churn at drastically higher rates than annual or two-year contract holders
--  **Internet Service** : Fiber optic users show significantly higher churn compared to DSL users
--  **Payment Method** : Customers paying via electronic check are the highest-risk group
--  **Online Security** : Customers without online security are far more likely to churn
+* Customers who choose Month-to-Month contract are most likely to churn
+* Customers with Fiber Optic internet services are likely to churn
+* Customers who uses electronic check as payment method have high risk of churn 
+* Customers who don't have online security are more likely to churn
 
 ---
 
@@ -195,7 +195,7 @@ A separate ANN was built using TensorFlow/Keras on the same preprocessed and SMO
 
 ---
 
-##  Streamlit App
+##  Streamlit Web
 
 The final LightGBM model is deployed as an interactive web application built with Streamlit, allowing business users to get real-time churn predictions without any coding.
 
@@ -268,19 +268,16 @@ This project was developed using **GitHub Codespaces**
 # 1. Open the repository in GitHub Codespaces
 #    Click the green "Code" button → "Codespaces" tab → "Create codespace on main"
 
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Add the dataset
+# 2. Add the dataset
 # Place WA_Fn-UseC_-Telco-Customer-Churn.csv inside the /Data folder (Raw dataset)
 
-# 4. Run ML notebook
+# 3. Run ML notebook
 jupyter notebook main.ipynb
 
-# 5. Run Deep Learning notebook
+# 4. Run Deep Learning notebook
 jupyter notebook deep_learning.ipynb
 
-# 6. Launch Streamlit App
+# 5. Launch Streamlit App
 streamlit run deployment.py
 ```
 ---
@@ -289,12 +286,19 @@ streamlit run deployment.py
 ```
 CUSTOMER-CHURN-PREDICTION/
 │
+|── Dashboard/
+│   ├── Preview/
+|   |       ├── Churn Performance.png
+|   |       ├── Master Sheet.png
+|   |
+│   └── Telco Data Analysis.pbix  <- Dashboard 
+|
 ├── Data/
 │   ├── cleaned_churn_data.csv
 │   └── WA_Fn-UseC_-Telco-Customer-Churn.csv
 │
 ├── Deployment/
-│   └── deployment.py            ← Streamlit web application
+│   └── deployment.py            <- Streamlit web application
 │
 ├── Models/
 │   ├── customer_churn_model.pkl
@@ -303,14 +307,18 @@ CUSTOMER-CHURN-PREDICTION/
 │
 ├── PowerBI/
 │   ├── Deep Learning/
+|   |           ├── Ann_accuracy.csv
+|   |           ├── Ann_classification_report.csv
+|   |           ├── Ann_predictions.csv
+|   |
 │   ├── accuracy_metrics.csv
 │   ├── classification_report.csv
 │   ├── predictions.csv
 │   └── training_data.csv
 │
-├── main.ipynb                   ← ML pipeline (LightGBM, RandomForest, XGBoost...)
-├── deep_learning.ipynb          ← ANN pipeline (TensorFlow/Keras)
+├── deep_learning.ipynb          <- ANN pipeline(TensorFlow/Keras)
+├── main.ipynb                   <- ML pipeline (LightGBM,GradientBoost,CatBoost,XGBoost..) 
+├── README.md
 ├── requirements.txt
-└── README.md
 ```
 

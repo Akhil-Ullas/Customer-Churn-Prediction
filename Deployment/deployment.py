@@ -1,3 +1,5 @@
+import os
+
 import numpy as np 
 import pandas as pd 
 import matplotlib.pyplot as plt
@@ -7,10 +9,16 @@ import joblib
 import streamlit as st
 
 # Load the model 
-model=joblib.load('/workspaces/Customer-Churn-Prediction/Models/customer_churn_model.pkl')
+# model=joblib.load('/workspaces/Customer-Churn-Prediction/Models/customer_churn_model.pkl')
+BASE_DIR = os.path.dirname(os.path.abspath('/workspaces/Customer-Churn-Prediction/Deployment/deployment.py'))
 
+model_path = os.path.join(BASE_DIR, "..", "Models", "customer_churn_model.pkl")
 # Load feature names 
-columns=joblib.load('/workspaces/Customer-Churn-Prediction/Models/feature_columns.pkl')
+# columns=joblib.load('/workspaces/Customer-Churn-Prediction/Models/feature_columns.pkl')
+columns_path = os.path.join(BASE_DIR, "..", "Models", "feature_columns.pkl")
+
+model = joblib.load(model_path)
+columns = joblib.load(columns_path)
 
 # Outline 
 st.set_page_config(page_title='Customer Churn Prediction',layout='wide')
